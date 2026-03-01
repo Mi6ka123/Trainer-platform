@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: trainer-platform-db
+    environment:
+      POSTGRES_DB: trainer_platform
+      POSTGRES_USER: trainer_user
+      POSTGRES_PASSWORD: trainer_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./schema.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U trainer_user -d trainer_platform"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    container_name: trainer-platform-app
+    environment:
+      DATABASE_URL: postgresql://trainer_user:trainer_password@postgres:5432/trainer_platform
+      NODE_ENV: production
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: npm start
+
+volumes:
+  postgres_data:
