@@ -1,0 +1,2 @@
+# Need GitHub token to proceed
+# Will create repo: islambek/trainer-platform
