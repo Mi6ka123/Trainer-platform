@@ -5,6 +5,7 @@
   "deploy": {
     "restartPolicyType": "on_failure",
     "numReplicas": 1,
-    "startCommand": "npm start"
+    "startCommand": "npm start",
+    "port": 3000
   }
 }
