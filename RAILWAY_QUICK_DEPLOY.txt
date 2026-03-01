@@ -1,0 +1,50 @@
+🚀 RAILWAY DEPLOYMENT - ПОСЛЕДНИЙ ШАГ
+
+ИНСТРУКЦИЯ (2 МИНУТЫ):
+
+1️⃣ Зайди сюда:
+https://railway.app/project/cef6e37d-cbb9-403a-9320-5ea6c668fbb2
+
+2️⃣ Нажми "+ New Service"
+
+3️⃣ Выбери "Deploy from GitHub" или "Raw GitHub URL"
+
+4️⃣ Если спросит ссылку, выбери ЛЮБОЙ публичный репо с Next.js:
+https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss
+
+5️⃣ Railway откроет редактор файлов
+
+6️⃣ Загрузи эти файлы вручную (Ctrl+Click на "+ Add Files"):
+- app/
+- lib/
+- public/
+- Dockerfile
+- package.json
+- next.config.js
+- tsconfig.json
+- tailwind.config.ts
+- postcss.config.js
+
+7️⃣ Нажми "Deploy"
+
+8️⃣ Через 3-5 минут получишь URL:
+https://trainer-platform-XXXXX.railway.app
+
+---
+
+АЛЬТЕРНАТИВА (ЕСЛИ НЕ СРАБОТАЕТ):
+
+Создай пустой GitHub репо:
+- https://github.com/new
+- Имя: trainer-platform
+- Public
+- Create
+
+Потом дай мне знак — я пушу туда код и Railway сам задеплоит.
+
+---
+
+ПРОЕКТ ПОЛНОСТЬЮ ГОТОВ.
+Это просто последний клик на Railway.
+
+Дай знак когда начнёшь! 🚀
