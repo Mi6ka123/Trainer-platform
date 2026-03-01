@@ -2,23 +2,17 @@ FROM node:18-alpine
 
 WORKDIR /app
 
+# Install dependencies
 COPY package*.json ./
-RUN npm ci
+RUN npm install --legacy-peer-deps
 
+# Copy source code
 COPY . .
 
+# Build Next.js
 RUN npm run build
-
-# Create initialization script
-RUN echo '#!/bin/sh\n\
-if [ -n "$DATABASE_URL" ]; then\n\
-  echo "Initializing database..."\n\
-  npx prisma migrate deploy || true\n\
-  npm run init-db || true\n\
-fi\n\
-npm start' > /app/entrypoint.sh && \
-chmod +x /app/entrypoint.sh
 
 EXPOSE 3000
 
-ENTRYPOINT ["/app/entrypoint.sh"]
+# Start the application
+CMD ["npm", "start"]

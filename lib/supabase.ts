@@ -1,6 +1,6 @@
-import { createClient } from '@supabase/supabase-js'
+// Database configuration for PostgreSQL
+// Uses DATABASE_URL environment variable set by Railway
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const getDbUrl = () => {
+  return process.env.DATABASE_URL || 'postgresql://localhost:5432/trainer_platform'
+}
